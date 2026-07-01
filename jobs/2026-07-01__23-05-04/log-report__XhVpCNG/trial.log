@@ -1,0 +1,3 @@
+Skipping image OS validation for hb__d1df41925d26345edac2d20d784678ce: docker inspect returned 1
+Collecting main service artifacts
+Trial log-report__XhVpCNG failed: No reward file found at jobs\2026-07-01__23-05-04\log-report__XhVpCNG\verifier\reward.txt or jobs\2026-07-01__23-05-04\log-report__XhVpCNG\verifier\reward.json

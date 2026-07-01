@@ -1,0 +1,47 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.14, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 5 items
+
+../tests/test_outputs.py .FFF.                                           [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_total_requests ______________________________
+
+    def test_total_requests():
+        """Success criterion 2: total_requests equals the number of log entries."""
+        report = load_report()
+>       assert report["total_requests"] == 6
+E       assert 0 == 6
+
+/tests/test_outputs.py:20: AssertionError
+_______________________________ test_unique_ips ________________________________
+
+    def test_unique_ips():
+        """Success criterion 3: unique_ips equals the number of distinct client IPs."""
+        report = load_report()
+>       assert report["unique_ips"] == 3
+E       assert 0 == 3
+
+/tests/test_outputs.py:26: AssertionError
+________________________________ test_top_path _________________________________
+
+    def test_top_path():
+        """Success criterion 4: top_path is the most frequently requested URL path."""
+        report = load_report()
+>       assert report["top_path"] == "/index.html"
+E       AssertionError: assert '/wrong' == '/index.html'
+E         
+E         - /index.html
+E         + /wrong
+
+/tests/test_outputs.py:32: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_report_exists
+PASSED ../tests/test_outputs.py::test_valid_json
+FAILED ../tests/test_outputs.py::test_total_requests - assert 0 == 6
+FAILED ../tests/test_outputs.py::test_unique_ips - assert 0 == 3
+FAILED ../tests/test_outputs.py::test_top_path - AssertionError: assert '/wro...
+========================= 3 failed, 2 passed in 0.11s ==========================
